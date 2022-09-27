@@ -18,10 +18,17 @@ function createAccount(pin, balance = 0) {
 		return `Succesfully withdrew $${amount}. Current balance: $${balance}.`;
 	};
 
+	changePin = (oldPin, newPin) => {
+		if (oldPin !== pin) return "Invalid PIN.";
+		pin = newPin;
+		return "PIN successfully changed!";
+	};
+
 	return {
 		checkBalance,
 		deposit,
 		withdraw,
+		changePin,
 	};
 }
 
